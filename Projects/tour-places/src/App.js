@@ -1,11 +1,13 @@
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
-
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 const App = () => {
   return (
     <div className="App">
       <Navbar />
-      <h1> Welcome React</h1>
+      <Header />
+      <Main />
     </div>
   );
 };
