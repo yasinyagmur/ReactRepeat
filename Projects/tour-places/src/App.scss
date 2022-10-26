@@ -1,0 +1,12 @@
+@import "./scss/reset", "./scss/variables";
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Joan&family=Lato:wght@900&family=Montserrat:ital,wght@1,700&family=Urbanist:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Hubballi&family=Joan&family=Lato:wght@900&family=Montserrat:ital,wght@1,700&family=Urbanist:wght@100&display=swap");
+
+body {
+  background-color: $backgroundColor;
+  font-family: "Amatic Sc", cursive;
+}
+
+p {
+  font-family: "Hubballi", cursive;
+}
