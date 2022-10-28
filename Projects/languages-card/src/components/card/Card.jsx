@@ -1,6 +1,7 @@
 import React from "react";
 import { languages } from "../../helpers/data";
 import Item from "../item/Item";
+import "./Card.css";
 
 const Card = () => {
   return (
@@ -10,7 +11,7 @@ const Card = () => {
       <div className="cards-container">
         {languages.map((item, index) => {
           //   return <h4>{item.name}</h4>;
-          return <Item card={item} key={index} />;
+          return <Item {...item} key={index} />;
         })}
       </div>
     </div>
