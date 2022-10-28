@@ -10,6 +10,10 @@ const Item = (item) => {
 
   const handleClick = () => {
     setShowLogo(!showLogo);
+    setTimeout(showTıme, 3000);
+  };
+  const showTıme = () => {
+    setShowLogo(true);
   };
 
   return (
@@ -20,7 +24,7 @@ const Item = (item) => {
           <h3 className="card-title">{name}</h3>
         </div>
       ) : (
-        <ul>
+        <ul className="list">
           {options.map((e, index) => {
             return <li key={index}>{e}</li>;
           })}

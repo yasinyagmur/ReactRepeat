@@ -9,6 +9,16 @@
   grid-template-areas: "top" "bottom";
   overflow: hidden;
 }
+.bars {
+  height: 60rem;
+  width: 5rem;
+  background-color: #53c1de;
+  position: relative;
+  transform: rotate(-45deg);
+  top: -50rem;
+  left: 10rem;
+}
+
 .languages-title {
   grid-area: top;
   text-align: center;
