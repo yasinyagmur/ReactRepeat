@@ -29,12 +29,21 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
+    getTutorials();
   };
 
+  const deleteTutorial = async (id) => {
+    try {
+      await axios.delete(`${url}/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
   return (
     <div>
       <AddTutorial addTutorial={addTutorial} />
-      <TutorialList tutorials={tutorials} />
+      <TutorialList tutorials={tutorials} deleteTutorial={deleteTutorial} />
     </div>
   );
 };
