@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 
-const AddTutorial = () => {
+const AddTutorial = ({ addTutorial }) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    return console.log(title, desc);
+    addTutorial({
+      title: title,
+      description: desc,
+    });
+    setTitle("");
+    setDesc("");
   };
   return (
     <div className="container text-center mt-4">
@@ -21,6 +26,7 @@ const AddTutorial = () => {
             type="text"
             name="title"
             id="title"
+            value={title}
             placeholder="Enter your title"
             required
             onChange={(e) => setTitle(e.target.value)}
@@ -35,6 +41,7 @@ const AddTutorial = () => {
             type="text"
             name="desc"
             id="desc"
+            value={desc}
             placeholder="Enter your description"
             required
             onChange={(e) => setDesc(e.target.value)}
