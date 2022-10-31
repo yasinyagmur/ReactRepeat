@@ -40,10 +40,25 @@ const Home = () => {
     }
     getTutorials();
   };
+
+  const editTutorial = async (id, title, desc) => {
+    const filtered = tutorials
+      .filter((tutor) => id === tutor.id)
+      .map(() => ({ title: title, description: desc }));
+
+    try {
+      await axios.put(`${url}/${id}`, filtered[0]);
+    } catch (error) {}
+    getTutorials();
+  };
   return (
     <div>
       <AddTutorial addTutorial={addTutorial} />
-      <TutorialList tutorials={tutorials} deleteTutorial={deleteTutorial} />
+      <TutorialList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        editTutorial={editTutorial}
+      />
     </div>
   );
 };
