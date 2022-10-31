@@ -8,9 +8,13 @@ const Home = () => {
   const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
 
   const getTutorials = async () => {
-    const { data } = await axios.get(url);
-    // console.log(data);
-    setTutorials(data);
+    try {
+      const { data } = await axios.get(url);
+      // console.log(data);
+      setTutorials(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   // getTutorials();
 
@@ -18,10 +22,19 @@ const Home = () => {
     getTutorials();
   }, []);
   console.log(tutorials);
+
+  const addTutorial = async (tutorial) => {
+    try {
+      await axios.post(url, tutorial);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
-      <AddTutorial />
-      <TutorialList />
+      <AddTutorial addTutorial={addTutorial} />
+      <TutorialList tutorials={tutorials} />
     </div>
   );
 };
