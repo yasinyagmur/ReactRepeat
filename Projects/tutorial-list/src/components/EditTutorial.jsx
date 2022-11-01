@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const EditTutorial = ({ editTutorial, editItem }) => {
-  const { id, title: newTitle, description } = editItem;
+  const { id, title: oldTitle, description } = editItem;
 
-  const [title, setTitle] = useState(newTitle);
+  const [title, setTitle] = useState(oldTitle);
   const [desc, setDesc] = useState(description);
 
   //? https://reactjs.org/docs/hooks-reference.html#usestate
@@ -16,12 +16,12 @@ const EditTutorial = ({ editTutorial, editItem }) => {
   //! gibi kullanabiriz.
 
   //? componentDidUpdate
-  //? newTitle veya description her degistiginde local title ve
+  //? oldTitle veya description her degistiginde local title ve
   //? desc state'lerimizi gunceliyoruz.
   useEffect(() => {
-    setTitle(newTitle);
+    setTitle(oldTitle);
     setDesc(description);
-  }, [newTitle, description]);
+  }, [oldTitle, description]);
 
   const handleSave = (e) => {
     e.preventDefault();
