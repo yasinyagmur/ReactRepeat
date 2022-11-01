@@ -1,57 +1,49 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const AddTutorial = ({ addTutorial }) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
-  const HandleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    addTutorial({
-      title: title,
-      description: desc,
-    });
+    addTutorial({ title: title, description: desc });
     setTitle("");
     setDesc("");
   };
+
   return (
     <div className="container text-center mt-4">
-      <h1 className="text-danger display-5">Add Your Tutorial</h1>
-      <form onSubmit={HandleSubmit}>
-        <div className="mb-2">
+      <h1 className="display-6 text-danger">Add Your Tutorial</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title
           </label>
           <input
-            className="form-control"
             type="text"
-            name="title"
+            className="form-control"
             id="title"
-            value={title}
             placeholder="Enter your title"
-            required
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
         </div>
-        <div className="mb-2 ">
-          <label htmlFor="desc" className=" form-label">
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
             Description
           </label>
           <input
-            className="form-control"
             type="text"
-            name="desc"
+            className="form-control"
             id="desc"
+            placeholder="Enter your Description"
             value={desc}
-            placeholder="Enter your description"
-            required
             onChange={(e) => setDesc(e.target.value)}
+            required
           />
         </div>
-        <div>
-          <button type="submit" className="btn btn-danger mb-4">
-            Submit
-          </button>
-        </div>
+        <button className="btn btn-danger mb-4">Submit</button>
       </form>
     </div>
   );

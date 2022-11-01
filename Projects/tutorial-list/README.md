@@ -1,10 +1,10 @@
 # API Base URLs
 
-## https://tutorials-api-cw.herokuapp.com/api/tutorials
+## <https://tutorials-api-cw.herokuapp.com/api/tutorials>
 
-## https://axios-example-cw.herokuapp.com/api/tutorials
+## <https://axios-example-cw.herokuapp.com/api/tutorials>
 
-## https://cw-axios-example.herokuapp.com/api/tutorials
+## <https://cw-axios-example.herokuapp.com/api/tutorials>
 
 ### API ENDPOINTS
 
@@ -17,6 +17,6 @@
 - GET `api/tutorials/published` find all published Tutorials
 - GET `api/tutorials?title=[kw]` find all Tutorials which title contains 'kw'
 
-# Deployed Frontend
+### Deployed Frontend
 
-## https://axios-example.netlify.app/
+## <https://axios-example.netlify.app/>

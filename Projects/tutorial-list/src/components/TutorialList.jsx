@@ -1,24 +1,13 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
 const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
-  // test data start
-  // let tutorials = [
-  //   {
-  //     id: 1,
-  //     title: "React Js",
-  //     description: "React is a JS-library for UI Desing",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "HTML",
-  //     description: "HTML is markup languages",
-  //   },
-  // ];
-  // test data finish
+  const [editItem, setEditItem] = useState("");
 
   return (
-    <div>
+    <div className="container mt-4">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -31,21 +20,23 @@ const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
           </tr>
         </thead>
         <tbody>
-          {tutorials.map((item) => {
+          {tutorials?.map((item) => {
             const { id, title, description } = item;
             return (
-              <tr>
+              <tr key={id}>
                 <th>{id}</th>
                 <td>{title}</td>
                 <td>{description}</td>
-                <td>
+                <td className="text-center text-nowrap">
                   <FaEdit
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-modal"
                     size={20}
-                    className="text-warning me-2 cursor-pointer"
-                    onClick={() => editTutorial(id)}
+                    className="me-2 text-warning cursor-pointer"
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
-                    size={21}
+                    size={22}
                     className="text-danger cursor-pointer"
                     onClick={() => deleteTutorial(id)}
                   />
@@ -55,7 +46,10 @@ const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
           })}
         </tbody>
       </table>
+
+      <EditTutorial editTutorial={editTutorial} editItem={editItem} />
     </div>
   );
 };
+
 export default TutorialList;
