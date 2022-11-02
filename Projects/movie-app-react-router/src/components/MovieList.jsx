@@ -2,11 +2,11 @@ import React from "react";
 import MoveCard from "./MoveCard";
 
 const MovieList = ({ movie }) => {
+  console.log(movie);
   return (
     <div>
-      MovieList
-      {movie.map((item, index) => {
-        <MoveCard item={item} key={index} />;
+      {movie?.map((item, index) => {
+        return <MoveCard item={item} key={index} />;
       })}
     </div>
   );

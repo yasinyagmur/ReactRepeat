@@ -4,7 +4,7 @@ import MovieList from "./components/MovieList";
 
 function App() {
   const [movie, setMovies] = useState();
-  console.log("movie", movie);
+  // console.log("movie", movie);
   const [loading, setLoading] = useState();
 
   const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=f4ecdb4b72f19d39698d5ba7e40d30ba`;
