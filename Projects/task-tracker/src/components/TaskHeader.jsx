@@ -10,7 +10,7 @@ const TaskHeader = () => {
       <button onClick={() => setShowTaskDone(!showTaskDone)}>
         {!showTaskDone ? "Close Task List" : "Show Task List"}
       </button>
-      {!showTaskDone && <TaskCreate />}
+      <div className="mt-4">{!showTaskDone && <TaskCreate />}</div>
     </div>
   );
 };
