@@ -5,9 +5,15 @@ const TaskCreate = ({ CreateTask }) => {
   const [taskDate, setTaskDate] = useState("");
   //   console.log(taskTitle);
   //   console.log(taskDate);
-
+  let TaskListArray = [
+    {
+      title: "yasin",
+      date: "2000-10-10",
+    },
+  ];
   const CreateTaskDone = () => {
-    CreateTask({ title: taskTitle, date: taskDate });
+    TaskListArray.push({ title: taskTitle, date: taskDate });
+    CreateTask(TaskListArray);
   };
 
   return (
