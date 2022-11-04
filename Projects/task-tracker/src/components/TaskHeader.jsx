@@ -25,7 +25,7 @@ const TaskHeader = () => {
       {!showTaskDone && (
         <div>
           <div className="mt-4">
-            <TaskCreate CreateTask={CreateTask} />
+            <TaskCreate CreateTask={CreateTask} taskList={taskList} />
           </div>
           <div>
             {/* map kısmı taşınacak task list kısmında yapılacak */}

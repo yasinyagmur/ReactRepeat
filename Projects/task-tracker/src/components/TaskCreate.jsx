@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 
-const TaskCreate = ({ CreateTask }) => {
+const TaskCreate = ({ CreateTask, taskList }) => {
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDate, setTaskDate] = useState("");
   //   console.log(taskTitle);
   //   console.log(taskDate);
-  let TaskListArray = [
-    {
-      title: "yasin",
-      date: "2000-10-10",
-    },
-  ];
+  const TaskListAdd = [{ title: taskTitle, date: taskDate }];
+
   const CreateTaskDone = () => {
-    TaskListArray.push({ title: taskTitle, date: taskDate });
-    CreateTask(TaskListArray);
+    CreateTask(TaskListAdd);
   };
 
   return (
