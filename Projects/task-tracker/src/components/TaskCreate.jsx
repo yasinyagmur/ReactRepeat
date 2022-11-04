@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskList from "./TaskList";
 
 const TaskCreate = () => {
@@ -6,11 +6,14 @@ const TaskCreate = () => {
   const [taskDate, setTaskDate] = useState("");
   //   console.log(taskTitle);
   //   console.log(taskDate);
-  const [taskListAdd, setTaskListAdd] = useState("");
+  const [taskListAdd, setTaskListAdd] = useState(
+    JSON.parse(localStorage.getItem("task")) || []
+  );
   console.log(taskListAdd);
   const CreateTaskDone = (e) => {
     e.preventDefault();
     const id = new Date().getTime();
+
     setTaskListAdd([
       ...taskListAdd,
       {
@@ -20,6 +23,9 @@ const TaskCreate = () => {
       },
     ]);
   };
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(taskListAdd));
+  }, [taskListAdd]);
 
   return (
     <div>
@@ -34,6 +40,7 @@ const TaskCreate = () => {
                 placeholder="Enter your task title..."
                 value={taskTitle}
                 onChange={(e) => setTaskTitle(e.target.value)}
+                required
               />
               <label htmlFor="floatingInput">Enter your task title...</label>
             </div>
@@ -42,6 +49,7 @@ const TaskCreate = () => {
                 type="date"
                 className="form-control "
                 id="floatingPassword"
+                required
                 value={taskDate}
                 onChange={(e) => setTaskDate(e.target.value)}
               />

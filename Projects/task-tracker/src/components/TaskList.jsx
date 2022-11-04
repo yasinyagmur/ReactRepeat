@@ -13,11 +13,20 @@ const TaskList = ({ taskListAdd }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {taskListAdd?.map((item, key) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.title}</td>
+                <td>{item.date}</td>
+                <td>X</td>
+              </tr>
+            );
+          })}
+          {/* <tr>
             <td>title</td>
             <td>date</td>
             <td>X</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
