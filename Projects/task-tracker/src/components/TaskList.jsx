@@ -1,8 +1,7 @@
 import React from "react";
 
-const TaskList = ({ item }) => {
-  console.log(item);
-  const { title, date } = item;
+const TaskList = ({ taskListAdd }) => {
+  console.log(taskListAdd[0]);
   return (
     <div>
       <table className="table">
@@ -15,8 +14,8 @@ const TaskList = ({ item }) => {
         </thead>
         <tbody>
           <tr>
-            <td>{title}</td>
-            <td>{date}</td>
+            <td>title</td>
+            <td>date</td>
             <td>X</td>
           </tr>
         </tbody>

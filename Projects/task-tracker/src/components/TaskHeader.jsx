@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import TaskCreate from "./TaskCreate";
-import TaskList from "./TaskList";
 
 const TaskHeader = () => {
   const [showTaskDone, setShowTaskDone] = useState(false);
-  const [taskList, setTaskList] = useState();
-
-  // const CreateTask = (create) => {
-  //   console.log(create);
-  //   // const { title, date } = create;
-  //   // console.log("header task title and date", title, date);
-  //   setTaskList(create);
-  // };
 
   return (
     <div>
@@ -25,17 +16,7 @@ const TaskHeader = () => {
       {!showTaskDone && (
         <div>
           <div className="mt-4">
-            <TaskCreate
-              // CreateTask={CreateTask}
-              setTaskList={setTaskList}
-            />
-          </div>
-          <div>
-            {/* map kısmı taşınacak task list kısmında yapılacak */}
-            {taskList?.map((item, index) => {
-              console.log(item);
-              return <TaskList item={item} key={index} />;
-            })}
+            <TaskCreate />
           </div>
         </div>
       )}
