@@ -56,5 +56,4 @@ const TaskUpdate = ({ uptadeTask, setTaskListAdd, taskListAdd }) => {
     </div>
   );
 };
-
 export default TaskUpdate;

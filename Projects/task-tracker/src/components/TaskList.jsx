@@ -68,11 +68,11 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
       {/* {uptadeTask?.map((item) => (
         <TaskUpdate item={item} />
       ))} */}
-      <TaskUpdate
+      {/* <TaskUpdate
         uptadeTask={uptadeTask}
         setTaskListAdd={setTaskListAdd}
         taskListAdd={taskListAdd}
-      />
+      /> */}
     </div>
   );
 };
