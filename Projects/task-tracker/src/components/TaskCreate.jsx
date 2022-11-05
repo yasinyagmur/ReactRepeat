@@ -66,7 +66,11 @@ const TaskCreate = () => {
           </div>
         </div>
       </form>
-      <TaskList taskListAdd={taskListAdd} handleTaskDelete={handleTaskDelete} />
+      <TaskList
+        taskListAdd={taskListAdd}
+        setTaskListAdd={setTaskListAdd}
+        handleTaskDelete={handleTaskDelete}
+      />
     </div>
   );
 };
