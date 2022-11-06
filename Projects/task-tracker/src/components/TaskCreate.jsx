@@ -10,7 +10,7 @@ const TaskCreate = () => {
   const [taskListAdd, setTaskListAdd] = useState(
     JSON.parse(localStorage.getItem("task")) || []
   );
-  console.log(taskListAdd);
+  // console.log(taskListAdd);
   const CreateTaskDone = (e) => {
     e.preventDefault();
     const id = new Date().getTime();

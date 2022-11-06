@@ -12,7 +12,7 @@ const TaskList = ({ taskListAdd, upChangeTask, handleTaskDelete }) => {
   const handleUptade = (id) => {
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
   };
-  console.log(updateTask);
+  // console.log(updateTask);
   return (
     <div>
       <table className="table">

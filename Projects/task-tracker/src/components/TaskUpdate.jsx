@@ -11,7 +11,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
       id: id,
     };
     upChangeTask(newEditTask);
-    console.log(newEditTask);
+    // console.log(newEditTask);
   };
   return (
     <div className="modal" tabIndex="-1" id="edit-modal">
