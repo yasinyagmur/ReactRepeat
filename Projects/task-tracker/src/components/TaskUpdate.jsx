@@ -4,11 +4,11 @@ const TaskUpdate = ({ item, upChangeTask }) => {
   const [newTitle, setNewTitle] = useState();
   const [newDate, setNewDate] = useState();
 
-  const handleUpdateDone = (id) => {
+  const handleUpdateDone = () => {
     const newEditTask = {
       title: newTitle,
       date: newDate,
-      id: id,
+      id: item.id,
     };
     upChangeTask(newEditTask);
     // console.log(newEditTask);
@@ -61,7 +61,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => handleUpdateDone(item.id)}
+              onClick={() => handleUpdateDone()}
             >
               Save changes
             </button>

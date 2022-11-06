@@ -66,7 +66,7 @@ const TaskList = ({ taskListAdd, upChangeTask, handleTaskDelete }) => {
         </tbody>
       </table>
       {updateTask?.map((item) => (
-        <TaskUpdate item={item} upChangeTask={upChangeTask} />
+        <TaskUpdate item={item} upChangeTask={upChangeTask} key={item.id} />
       ))}
     </div>
   );
