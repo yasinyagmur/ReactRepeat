@@ -4,6 +4,7 @@ import TaskList from "./TaskList";
 const TaskCreate = () => {
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDate, setTaskDate] = useState("");
+
   //   console.log(taskTitle);
   //   console.log(taskDate);
   const [taskListAdd, setTaskListAdd] = useState(
@@ -33,7 +34,10 @@ const TaskCreate = () => {
   const handleTaskDelete = (id) => {
     setTaskListAdd(taskListAdd.filter((item) => item.id !== id));
   };
-
+  const upChangeTask = (newEditTask) => {
+    const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
+    setTaskListAdd([...filtered, newEditTask]);
+  };
   return (
     <div>
       <form onSubmit={CreateTaskDone}>
@@ -70,6 +74,7 @@ const TaskCreate = () => {
         taskListAdd={taskListAdd}
         setTaskListAdd={setTaskListAdd}
         handleTaskDelete={handleTaskDelete}
+        upChangeTask={upChangeTask}
       />
     </div>
   );

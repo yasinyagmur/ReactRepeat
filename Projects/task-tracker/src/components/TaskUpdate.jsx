@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
-const TaskUpdate = ({ uptadeTask, setTaskListAdd, taskListAdd }) => {
-  const { title, date, id } = uptadeTask[0];
+const TaskUpdate = ({ item, upChangeTask }) => {
   const [newTitle, setNewTitle] = useState();
   const [newDate, setNewDate] = useState();
-  console.log(title);
 
-  const handleUpdateDone = () => {
-    setTaskListAdd({
+  const handleUpdateDone = (id) => {
+    const newEditTask = {
       title: newTitle,
       date: newDate,
       id: id,
-    });
+    };
+    upChangeTask(newEditTask);
+    console.log(newEditTask);
   };
   return (
     <div className="modal" tabIndex="-1" id="edit-modal">
@@ -27,13 +27,28 @@ const TaskUpdate = ({ uptadeTask, setTaskListAdd, taskListAdd }) => {
             ></button>
           </div>
           <div className="modal-body">
+            <label htmlFor="title" className="form-label">
+              Title
+            </label>
             <input
+              type="text"
+              className="form-control"
+              id="title"
+              // value={item.title || ""}
               onChange={(e) => setNewTitle(e.target.value)}
-              value={title}
             />
           </div>
           <div className="modal-body">
-            <input onChange={(e) => setNewDate(e.target.value)} value={date} />
+            <label htmlFor="date" className="form-label">
+              Date
+            </label>
+            <input
+              type="date"
+              className="form-control"
+              id="date"
+              onChange={(e) => setNewDate(e.target.value)}
+              // value={item.date || ""}
+            />
           </div>
           <div className="modal-footer">
             <button
@@ -46,7 +61,7 @@ const TaskUpdate = ({ uptadeTask, setTaskListAdd, taskListAdd }) => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => handleUpdateDone()}
+              onClick={() => handleUpdateDone(item.id)}
             >
               Save changes
             </button>
