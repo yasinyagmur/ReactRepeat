@@ -4,7 +4,8 @@ const TaskUpdate = ({ item, upChangeTask }) => {
   const [newTitle, setNewTitle] = useState();
   const [newDate, setNewDate] = useState();
 
-  const handleUpdateDone = () => {
+  const handleUpdateDone = (e) => {
+    e.preventDefault();
     const newEditTask = {
       title: newTitle,
       date: newDate,
@@ -23,7 +24,6 @@ const TaskUpdate = ({ item, upChangeTask }) => {
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
             ></button>
           </div>
           <div className="modal-body">
@@ -61,7 +61,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => handleUpdateDone()}
+              onClick={handleUpdateDone}
             >
               Save changes
             </button>

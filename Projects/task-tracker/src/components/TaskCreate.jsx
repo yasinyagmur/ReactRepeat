@@ -11,6 +11,7 @@ const TaskCreate = () => {
     JSON.parse(localStorage.getItem("task")) || []
   );
   // console.log(taskListAdd);
+
   const CreateTaskDone = (e) => {
     e.preventDefault();
     const id = new Date().getTime();
@@ -27,6 +28,7 @@ const TaskCreate = () => {
     setTaskTitle("");
     setTaskDate("");
   };
+
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(taskListAdd));
   }, [taskListAdd]);
@@ -34,10 +36,12 @@ const TaskCreate = () => {
   const handleTaskDelete = (id) => {
     setTaskListAdd(taskListAdd.filter((item) => item.id !== id));
   };
+
   const upChangeTask = (newEditTask) => {
     const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
     setTaskListAdd([...filtered, newEditTask]);
   };
+
   return (
     <div>
       <form onSubmit={CreateTaskDone}>
