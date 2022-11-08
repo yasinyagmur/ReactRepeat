@@ -37,11 +37,6 @@ const TaskCreate = () => {
     setTaskListAdd(taskListAdd.filter((item) => item.id !== id));
   };
 
-  const upChangeTask = (newEditTask) => {
-    const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
-    setTaskListAdd([...filtered, newEditTask]);
-  };
-
   return (
     <div>
       <form onSubmit={CreateTaskDone}>
@@ -78,7 +73,6 @@ const TaskCreate = () => {
         taskListAdd={taskListAdd}
         setTaskListAdd={setTaskListAdd}
         handleTaskDelete={handleTaskDelete}
-        upChangeTask={upChangeTask}
       />
     </div>
   );

@@ -5,14 +5,15 @@ import { TiEdit } from "react-icons/ti";
 import { TiInputCheckedOutline } from "react-icons/ti";
 import TaskUpdate from "./TaskUpdate";
 
-const TaskList = ({ taskListAdd, upChangeTask, handleTaskDelete }) => {
+const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
   // console.log(taskListAdd[0]);
   const [updateTask, setUpdateTask] = useState();
   // console.log(uptadeTask);
   const handleUptade = (id) => {
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
+    console.log("handleupdate fonks.");
   };
-  // console.log(updateTask);
+  console.log(taskListAdd);
   return (
     <div>
       <table className="table">
@@ -66,7 +67,12 @@ const TaskList = ({ taskListAdd, upChangeTask, handleTaskDelete }) => {
         </tbody>
       </table>
       {updateTask?.map((item) => (
-        <TaskUpdate item={item} upChangeTask={upChangeTask} key={item.id} />
+        <TaskUpdate
+          setTaskListAdd={setTaskListAdd}
+          taskListAdd={taskListAdd}
+          item={item}
+          key={item.id}
+        />
       ))}
     </div>
   );

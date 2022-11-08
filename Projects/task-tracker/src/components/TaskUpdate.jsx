@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
-const TaskUpdate = ({ item, upChangeTask }) => {
-  const [newTitle, setNewTitle] = useState();
-  const [newDate, setNewDate] = useState();
+const TaskUpdate = ({ item, setTaskListAdd, taskListAdd }) => {
+  const [newTitle, setNewTitle] = useState(item.title);
+  const [newDate, setNewDate] = useState(item.date);
+  console.log(item);
+
+  const upChangeTask = (newEditTask) => {
+    const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
+    setTaskListAdd([...filtered, newEditTask]);
+  };
 
   const handleUpdateDone = (e) => {
     e.preventDefault();
@@ -14,6 +20,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
     upChangeTask(newEditTask);
     // console.log(newEditTask);
   };
+
   return (
     <div className="modal" tabIndex="-1" id="edit-modal">
       <div className="modal-dialog">
@@ -34,7 +41,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
               type="text"
               className="form-control"
               id="title"
-              // value={item.title || ""}
+              value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
             />
           </div>
@@ -47,7 +54,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
               className="form-control"
               id="date"
               onChange={(e) => setNewDate(e.target.value)}
-              // value={item.date || ""}
+              value={newDate}
             />
           </div>
           <div className="modal-footer">
@@ -61,6 +68,7 @@ const TaskUpdate = ({ item, upChangeTask }) => {
             <button
               type="button"
               className="btn btn-primary"
+              data-bs-dismiss="modal"
               onClick={handleUpdateDone}
             >
               Save changes
