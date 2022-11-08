@@ -33,6 +33,8 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
     console.log(newEditTask);
     const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
     setTaskListAdd([...filtered, newEditTask]);
+    setNewTitle("");
+    setNewDate("");
   };
 
   return (
