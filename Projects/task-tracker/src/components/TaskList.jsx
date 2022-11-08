@@ -3,35 +3,34 @@ import { useState } from "react";
 import { TiTrash } from "react-icons/ti";
 import { TiEdit } from "react-icons/ti";
 import { TiInputCheckedOutline } from "react-icons/ti";
-import TaskUpdate from "./TaskUpdate";
+// import TaskUpdate from "./TaskUpdate";
 
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
+  // Tıklanan edit butonuna ait verilerin aktarıldığı state start
   const [updateTask, setUpdateTask] = useState();
+  //! console.log(updateTask);
+  // Tıklanan edit butonuna ait verilerin aktarıldığı state finish
 
   // Modal dan gelen yen veriler için oluşturulan stateler start
+
   const [newTitle, setNewTitle] = useState("");
+  //! console.log(newTitle);
   const [newDate, setNewDate] = useState("");
+  //! console.log(newDate);
+
   // Modal dan gelen yen veriler için oluşturulan stateler finish
 
   const handleUptade = (id) => {
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
   };
 
-  // console.log(taskListAdd);
-
-  // console.log(item);
-
-  // const upChangeTask = (newEditTask) => {
-  //   const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
-  //   setTaskListAdd([...filtered, newEditTask]);
-  // };
-
   const handleUpdateDone = () => {
     const newEditTask = {
       title: newTitle,
       date: newDate,
-      id: updateTask.id,
+      id: updateTask[0].id,
     };
+    console.log(newEditTask);
     const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
     setTaskListAdd([...filtered, newEditTask]);
   };
