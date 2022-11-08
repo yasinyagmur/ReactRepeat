@@ -6,31 +6,32 @@ import { TiInputCheckedOutline } from "react-icons/ti";
 // import TaskUpdate from "./TaskUpdate";
 
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
-  // Tıklanan edit butonuna ait verilerin aktarıldığı state start
+  //* Tıklanan edit butonuna ait verilerin aktarıldığı state start
   const [updateTask, setUpdateTask] = useState();
-  //! console.log(updateTask);
-  // Tıklanan edit butonuna ait verilerin aktarıldığı state finish
+  // console.log(updateTask);
+  //* Tıklanan edit butonuna ait verilerin aktarıldığı state finish
 
-  // Modal dan gelen yen veriler için oluşturulan stateler start
-
+  //* Modal dan gelen yen veriler için oluşturulan stateler start
   const [newTitle, setNewTitle] = useState("");
-  //! console.log(newTitle);
+  // console.log(newTitle);
   const [newDate, setNewDate] = useState("");
-  //! console.log(newDate);
-
-  // Modal dan gelen yen veriler için oluşturulan stateler finish
+  // console.log(newDate);
+  //* Modal dan gelen yen veriler için oluşturulan stateler finish
 
   const handleUptade = (id) => {
+    //* edit butonuna tıkladıktan sonra tıklanan veriyi id' sine göre seçip state aktarımı
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
   };
 
   const handleUpdateDone = () => {
+    //* Modalda submit yapıldıktan sonra veriler yeni object haline geliyor
     const newEditTask = {
       title: newTitle,
       date: newDate,
       id: updateTask[0].id,
     };
-    console.log(newEditTask);
+    // console.log(newEditTask);
+    //* Oluşturulan yeni object in id'si seçilip eski veri çıkarılıp yenisi spread yöntemi ile sona ekleniyor
     const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
     setTaskListAdd([...filtered, newEditTask]);
     setNewTitle("");
