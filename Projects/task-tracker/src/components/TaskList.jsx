@@ -7,7 +7,7 @@ import { TiInputCheckedOutline } from "react-icons/ti";
 
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state start
-  const [updateTask, setUpdateTask] = useState();
+  const [updateTask, setUpdateTask] = useState("");
   // console.log(updateTask);
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state finish
 
@@ -90,6 +90,9 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
           </tr> */}
         </tbody>
       </table>
+
+      {/* Modal TaskUpdate component inden çıkarıldı */}
+
       {/* {updateTask?.map((item) => (
         <TaskUpdate
           setTaskListAdd={setTaskListAdd}
@@ -99,6 +102,7 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
         />
       ))} */}
 
+      {/* Modal Start */}
       <div className="modal" tabIndex="-1" id="edit-modal">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -154,6 +158,7 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
           </div>
         </div>
       </div>
+      {/* Modal finish */}
     </div>
   );
 };
