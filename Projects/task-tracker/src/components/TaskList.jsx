@@ -6,14 +6,36 @@ import { TiInputCheckedOutline } from "react-icons/ti";
 import TaskUpdate from "./TaskUpdate";
 
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
-  // console.log(taskListAdd[0]);
   const [updateTask, setUpdateTask] = useState();
-  // console.log(uptadeTask);
+
+  // Modal dan gelen yen veriler için oluşturulan stateler start
+  const [newTitle, setNewTitle] = useState("");
+  const [newDate, setNewDate] = useState("");
+  // Modal dan gelen yen veriler için oluşturulan stateler finish
+
   const handleUptade = (id) => {
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
-    console.log("handleupdate fonks.");
   };
-  console.log(taskListAdd);
+
+  // console.log(taskListAdd);
+
+  // console.log(item);
+
+  // const upChangeTask = (newEditTask) => {
+  //   const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
+  //   setTaskListAdd([...filtered, newEditTask]);
+  // };
+
+  const handleUpdateDone = () => {
+    const newEditTask = {
+      title: newTitle,
+      date: newDate,
+      id: updateTask.id,
+    };
+    const filtered = taskListAdd.filter((item) => item.id !== newEditTask.id);
+    setTaskListAdd([...filtered, newEditTask]);
+  };
+
   return (
     <div>
       <table className="table">
@@ -66,14 +88,70 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
           </tr> */}
         </tbody>
       </table>
-      {updateTask?.map((item) => (
+      {/* {updateTask?.map((item) => (
         <TaskUpdate
           setTaskListAdd={setTaskListAdd}
           taskListAdd={taskListAdd}
           item={item}
           key={item.id}
         />
-      ))}
+      ))} */}
+
+      <div className="modal" tabIndex="-1" id="edit-modal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Task Update</h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <label htmlFor="title" className="form-label">
+                Title
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="title"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
+            </div>
+            <div className="modal-body">
+              <label htmlFor="date" className="form-label">
+                Date
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="date"
+                onChange={(e) => setNewDate(e.target.value)}
+                value={newDate}
+              />
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={handleUpdateDone}
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
