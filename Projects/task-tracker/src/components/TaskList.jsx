@@ -8,7 +8,7 @@ import { TiInputCheckedOutline } from "react-icons/ti";
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state start
   const [updateTask, setUpdateTask] = useState("");
-  console.log(updateTask);
+  // console.log(updateTask);
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state finish
 
   //* Modal dan gelen yen veriler için oluşturulan stateler start
