@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { TiTrash } from "react-icons/ti";
 import { TiEdit } from "react-icons/ti";
@@ -8,7 +8,7 @@ import { TiInputCheckedOutline } from "react-icons/ti";
 const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state start
   const [updateTask, setUpdateTask] = useState("");
-  // console.log(updateTask);
+  console.log(updateTask);
   //* Tıklanan edit butonuna ait verilerin aktarıldığı state finish
 
   //* Modal dan gelen yen veriler için oluşturulan stateler start
@@ -22,6 +22,13 @@ const TaskList = ({ taskListAdd, setTaskListAdd, handleTaskDelete }) => {
     //* edit butonuna tıkladıktan sonra tıklanan veriyi id' sine göre seçip state aktarımı
     setUpdateTask(taskListAdd.filter((item) => item.id === id));
   };
+
+  // * Edit butonuna tıklandığnda useEffect Hook unda dependency array tetikleniyor ve modal valuelar tıklanan veri ile dolduruluyor start
+  useEffect(() => {
+    setNewTitle(updateTask[0]?.title);
+    setNewDate(updateTask[0]?.date);
+  }, [updateTask]);
+  // * Edit butonuna tıklandığnda useEffect Hook unda dependency array tetikleniyor ve modal valuelar tıklanan veri ile dolduruluyor Finish
 
   const handleUpdateDone = () => {
     //* Modalda submit yapıldıktan sonra veriler yeni object haline geliyor
