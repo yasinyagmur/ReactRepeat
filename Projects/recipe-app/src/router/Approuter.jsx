@@ -6,6 +6,7 @@ import { About } from "../pages/About/About";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import PrivateRouter from "./PrivateRouter";
+import Register from "../pages/Register/Register";
 
 const Approuter = () => {
   return (
@@ -15,6 +16,8 @@ const Approuter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+
         {/* user true ise about pages gidiş gerçekleşiyor yoksa private routerda belirtilen page e gidiyor */}
         <Route path="about" element={<PrivateRouter />}>
           <Route path="" element={<About />} />
