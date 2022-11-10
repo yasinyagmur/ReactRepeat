@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import Nav, { Hamburger, Logo, Menu, MenuLink } from "./Navbar.style";
-import NavbarStyle from "./Navbar.style";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 
@@ -13,15 +11,18 @@ const Navbar = () => {
         <i>{"JasonR"}</i>
         <span>Recipe</span>
       </Logo>
+
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <GiHamburgerMenu />
       </Hamburger>
 
-      <Menu isOpen={isOpen}>
+      <Menu isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="about">About</MenuLink>
         <MenuLink to="register">Register</MenuLink>
-        <MenuLink to="logout">Logout</MenuLink>
+        <MenuLink to="login" onClick={() => sessionStorage.clear()}>
+          Logout
+        </MenuLink>
       </Menu>
     </Nav>
   );
