@@ -20,7 +20,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("user", JSON.stringify(userınfo));
-    navigate("-1");
+    navigate(-1);
   };
 
   return (
