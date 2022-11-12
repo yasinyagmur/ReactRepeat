@@ -1,4 +1,4 @@
-import LoginStyle, {
+import {
   FormContainer,
   Header,
   LoginContainer,
