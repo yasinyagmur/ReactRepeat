@@ -9,4 +9,5 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
     font-size:1.3rem;
+    background-color:${({ theme }) => theme.colors.mainColor}
 }`;

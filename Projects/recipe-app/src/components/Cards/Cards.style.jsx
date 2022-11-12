@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Flex from "../../components/globalStyles/Flex";
+import Flex from "../../components/GlobalStyles/Flex";
 
 export const MainContainer = styled(Flex)`
   flex-direction: row;

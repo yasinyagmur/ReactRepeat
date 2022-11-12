@@ -1,6 +1,4 @@
-import CardsStyle from "./Cards.style";
-
-const Cards = () => {
+const Cards = ({ recipes }) => {
   return <div>Cards</div>;
 };
 
