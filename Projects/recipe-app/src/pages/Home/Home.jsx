@@ -26,16 +26,13 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <div>
       <Header
         setQuery={setQuery}
         setselectedMeal={setselectedMeal}
         mealType={mealType}
+        getData={getData}
       />
     </div>
   );
