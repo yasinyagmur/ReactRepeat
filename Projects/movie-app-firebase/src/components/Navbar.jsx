@@ -13,10 +13,10 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const Navbar = () => {
+  const pages = ["Products", "Pricing", "Blog"];
+  const settings = ["Profile", "Login", "Register", "Logout"];
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -55,7 +55,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Rain Movie
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -111,7 +111,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Rain Movie
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

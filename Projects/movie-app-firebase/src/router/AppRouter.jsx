@@ -17,9 +17,10 @@ const AppRouter = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
-        <Route path="detail" element={<AuthContextProvider />}>
+        <Route path="/detail/:id" element={<AuthContextProvider />}>
           <Route path="" element={<MovieDetail />} />
         </Route>
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );
