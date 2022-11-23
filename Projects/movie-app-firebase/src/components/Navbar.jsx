@@ -12,12 +12,14 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-
+  const { currentUser } = useContext(AuthContext);
   // const currentUser = { displayName: "Jason Rain" };
-  const currentUser = false;
+  // const currentUser = false;
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
