@@ -34,13 +34,17 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
+  const [userRegister, setUserRegister] = React.useState();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    setUserRegister({
+      name: data.get("firstName"),
+      lastName: data.get("lastName"),
       email: data.get("email"),
       password: data.get("password"),
     });
+    console.log(userRegister);
   };
 
   return (
