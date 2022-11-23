@@ -11,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleIcon from "@mui/icons-material/Google";
+import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -33,20 +35,16 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
-  const [userRegisterEmail, setUserRegisterEmail] = React.useState();
-  const [userRegisterPassword, setUserRegisterPassword] = React.useState();
-  const [userRegisterFirstName, setUserRegisterFirstName] = React.useState();
-  const [userRegisterLastName, setUserRegisterLastName] = React.useState();
+  const [email, setEmail] = React.useState();
+  const [password, setPassword] = React.useState();
+  const [firstName, setFirstName] = React.useState();
+  const [lastName, setLastName] = React.useState();
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
-
-    console.log(
-      userRegisterEmail,
-      userRegisterFirstName,
-      userRegisterLastName,
-      userRegisterPassword
-    );
+    createUser(email, password, navigate);
+    console.log(email, firstName, lastName, password);
   };
 
   return (
@@ -82,9 +80,7 @@ export default function Register() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  onChange={(event) =>
-                    setUserRegisterFirstName(event.target.value)
-                  }
+                  onChange={(event) => setFirstName(event.target.value)}
                   autoFocus
                 />
               </Grid>
@@ -96,9 +92,7 @@ export default function Register() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                  onChange={(event) =>
-                    setUserRegisterLastName(event.target.value)
-                  }
+                  onChange={(event) => setLastName(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -109,7 +103,7 @@ export default function Register() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  onChange={(event) => setUserRegisterEmail(event.target.value)}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -121,9 +115,7 @@ export default function Register() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                  onChange={(event) =>
-                    setUserRegisterPassword(event.target.value)
-                  }
+                  onChange={(event) => setPassword(event.target.value)}
                 />
               </Grid>
             </Grid>
