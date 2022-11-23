@@ -1,10 +1,13 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import React, { createContext, useState } from "react";
 
-const AuthContextProvider = () => {
-  const currentUser = true;
+export const AuthContext = createContext();
 
-  return currentUser ? <Outlet /> : <Navigate to="/login" />;
+const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(false);
+
+  <AuthContext.Provider value={{ currentUser }}>
+    {children}
+  </AuthContext.Provider>;
 };
 
 export default AuthContextProvider;

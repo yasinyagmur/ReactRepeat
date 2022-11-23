@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import AuthContextProvider from "../context/AuthContext";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -17,9 +16,7 @@ const AppRouter = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<AuthContextProvider />}>
-          <Route path="" element={<MovieDetail />} />
-        </Route>
+        <Route path="/detail/:id" element={<MovieDetail />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
