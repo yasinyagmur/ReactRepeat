@@ -34,17 +34,20 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
-  const [userRegister, setUserRegister] = React.useState();
-  const handleSubmit = (event) => {
+  const [userRegisterEmail, setUserRegisterEmail] = React.useState();
+  const [userRegisterPassword, setUserRegisterPassword] = React.useState();
+  const [userRegisterFirstName, setUserRegisterFirstName] = React.useState();
+  const [userRegisterLastName, setUserRegisterLastName] = React.useState();
+
+  const handleRegister = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    setUserRegister({
-      name: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    console.log(userRegister);
+
+    console.log(
+      userRegisterEmail,
+      userRegisterFirstName,
+      userRegisterLastName,
+      userRegisterPassword
+    );
   };
 
   return (
@@ -68,7 +71,7 @@ export default function Register() {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleRegister}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
@@ -80,6 +83,9 @@ export default function Register() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  onChange={(event) =>
+                    setUserRegisterFirstName(event.target.value)
+                  }
                   autoFocus
                 />
               </Grid>
@@ -91,6 +97,9 @@ export default function Register() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={(event) =>
+                    setUserRegisterLastName(event.target.value)
+                  }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -101,6 +110,7 @@ export default function Register() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(event) => setUserRegisterEmail(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -112,6 +122,9 @@ export default function Register() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={(event) =>
+                    setUserRegisterPassword(event.target.value)
+                  }
                 />
               </Grid>
               <Grid item xs={12}>

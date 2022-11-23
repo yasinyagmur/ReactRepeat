@@ -31,16 +31,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const [userLogin, setUserLogin] = React.useState();
+  const [userLoginEmail, setUserLoginEmail] = React.useState();
+  const [userLoginPassword, setUserLoginPassword] = React.useState();
 
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    setUserLogin({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    console.log({ userLogin });
+    console.log(userLoginEmail, userLoginPassword);
   };
 
   return (
@@ -63,7 +59,7 @@ export default function Login() {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={handleLogin}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -75,6 +71,7 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={(event) => setUserLoginEmail(event.target.value)}
               autoFocus
             />
             <TextField
@@ -86,6 +83,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(event) => setUserLoginPassword(event.target.value)}
             />
 
             <Button
@@ -95,6 +93,9 @@ export default function Login() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              Continue with Google
             </Button>
           </Box>
         </Box>
