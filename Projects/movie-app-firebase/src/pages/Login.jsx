@@ -9,6 +9,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import GoogleIcon from "@mui/icons-material/Google";
 
 function Copyright(props) {
   return (
@@ -96,6 +97,7 @@ export default function Login() {
             </Button>
             <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Continue with Google
+              <GoogleIcon sx={{ marginLeft: "1rem" }} />
             </Button>
           </Box>
         </Box>
