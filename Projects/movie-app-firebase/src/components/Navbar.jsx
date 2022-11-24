@@ -11,9 +11,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { logOut } from "../auth/firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -139,18 +139,25 @@ const Navbar = () => {
                     <Typography textAlign="center">Profile</Typography>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Logout</Typography>
+                    <Typography
+                      onClick={() => logOut(navigate)}
+                      textAlign="center"
+                    >
+                      Logout
+                    </Typography>
                   </MenuItem>
                 </Box>
               ) : (
                 <Box>
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Button onClick={() => navigate("/login")}>Login</Button>
+                    <Typography onClick={() => navigate("/login")}>
+                      Login
+                    </Typography>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Button onClick={() => navigate("/register")}>
+                    <Typography onClick={() => navigate("/register")}>
                       Register
-                    </Button>
+                    </Typography>
                   </MenuItem>
                 </Box>
               )}

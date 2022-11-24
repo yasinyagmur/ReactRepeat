@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -41,7 +43,7 @@ export const createUser = async (email, password, navigate) => {
   }
 };
 
-//* Var olan kullanıcı girişi
+//* Var olan kullanıcı girişi- user login
 
 export const sigIn = async (email, password, navigate) => {
   try {
@@ -51,8 +53,30 @@ export const sigIn = async (email, password, navigate) => {
       password
     );
     navigate("/");
+    // sessionStorage.setItem("user", JSON.stringify(userCredential.user));
     console.log(userCredential);
   } catch (error) {
+    navigate("/register");
     console.log(error);
   }
+};
+export const userObserver = (setCurrentUser) => {
+  // * kullanıcı  varmı yokmu kontrolü sağıyor
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+
+      setCurrentUser(user);
+    } else {
+      setCurrentUser(false);
+    }
+  });
+};
+
+// * user logouth
+export const logOut = (navigate) => {
+  signOut(auth);
+  navigate("/");
 };
