@@ -5,6 +5,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -29,13 +32,24 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 //* Yeni Kullanıcı oluşturma kısmı -New user
-export const createUser = async (email, password, navigate) => {
+export const createUser = async (
+  email,
+  password,
+  navigate,
+  firstName,
+  lastName
+) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
+    // kullanıcı profilini güncellemek için kullanılıyor
+    await updateProfile(auth.currentUser, {
+      displayName: firstName + " " + lastName,
+    });
+
     navigate("/");
     console.log(userCredential);
   } catch (error) {
@@ -79,4 +93,20 @@ export const userObserver = (setCurrentUser) => {
 export const logOut = (navigate) => {
   signOut(auth);
   navigate("/");
+};
+
+export const signUpProvider = (navigate) => {
+  // *Google ile giriş yöntemi
+  const provider = new GoogleAuthProvider();
+
+  // * Popup ile açılır pencere yöntemi
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate(-1);
+    })
+    .catch((error) => {
+      console.log(error);
+      navigate("/register");
+    });
 };

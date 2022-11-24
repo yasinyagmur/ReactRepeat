@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleIcon from "@mui/icons-material/Google";
-import { sigIn } from "../auth/firebase";
+import { sigIn, signUpProvider } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
@@ -99,7 +99,12 @@ export default function Login() {
             >
               Sign In
             </Button>
-            <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              onClick={() => signUpProvider(navigate)}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Continue with Google
               <GoogleIcon sx={{ marginLeft: "1rem" }} />
             </Button>

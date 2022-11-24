@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleIcon from "@mui/icons-material/Google";
-import { createUser } from "../auth/firebase";
+import { createUser, signUpProvider } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
@@ -43,7 +43,7 @@ export default function Register() {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    createUser(email, password, navigate);
+    createUser(email, password, navigate, firstName, lastName);
     console.log(email, firstName, lastName, password);
   };
 
@@ -127,7 +127,12 @@ export default function Register() {
             >
               Sign Up
             </Button>
-            <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              onClick={() => signUpProvider(navigate)}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Continue with Google
               <GoogleIcon sx={{ marginLeft: "1rem" }} />
             </Button>
