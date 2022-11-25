@@ -86,14 +86,6 @@ export default function RecipeReviewCard() {
                 </Typography>
               )}
             </CardActions>
-            <Button
-              onClick={() => {
-                navigate("/details/" + id);
-              }}
-              size="small"
-            >
-              Movie Detail
-            </Button>
           </Card>
         );
       })}
