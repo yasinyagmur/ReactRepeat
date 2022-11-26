@@ -3,11 +3,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Container, IconButton } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Button, CardActionArea, Container, IconButton } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import StarHalfOutlinedIcon from "@mui/icons-material/StarHalfOutlined";
+import { Box } from "@mui/system";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const MovieDetail = () => {
     vote_count,
     original_language,
   } = movieDetails;
-  console.log(movieDetails);
+  // console.log(movieDetails);
   return (
     <Container
       sx={{
@@ -54,7 +55,6 @@ const MovieDetail = () => {
             <Typography gutterBottom variant="h5" component="div">
               {title}
             </Typography>
-
             <Typography variant="body2" color="text.secondary">
               {overview}
             </Typography>
@@ -66,6 +66,24 @@ const MovieDetail = () => {
                 {"Release Date: " + release_date}
               </Typography>
             </IconButton>
+            <Box
+              style={{
+                marginTop: "1.3rem",
+              }}
+            >
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "gray",
+                  border: "1px solid gray",
+                  padding: "0.5rem",
+                  borderRadius: "5px",
+                }}
+                to={-1}
+              >
+                Go Back
+              </Link>
+            </Box>
           </CardContent>
         </CardActionArea>
       </Card>
