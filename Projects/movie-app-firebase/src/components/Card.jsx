@@ -58,6 +58,7 @@ export default function RecipeReviewCard() {
           vote_average,
           vote_count,
           id,
+          original_language,
         } = movie;
         return (
           <Card sx={{ maxWidth: 340, margin: "1rem" }}>
@@ -77,15 +78,24 @@ export default function RecipeReviewCard() {
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
+              <Typography>Original Language: {original_language}</Typography>
               <IconButton aria-label="add to favorites">
                 <StarHalfOutlinedIcon />
               </IconButton>
               {currentUser && (
                 <Typography>
-                  {vote_average}/{vote_count}
+                  {vote_average} / {vote_count}
                 </Typography>
               )}
             </CardActions>
+            <Button
+              onClick={() => {
+                navigate("/detail/" + id);
+              }}
+              size="small"
+            >
+              Movie Detail
+            </Button>
           </Card>
         );
       })}
