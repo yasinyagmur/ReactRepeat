@@ -103,7 +103,7 @@ export const signUpProvider = (navigate) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
-      navigate(-1);
+      navigate("/");
     })
     .catch((error) => {
       console.log(error);

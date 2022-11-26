@@ -78,13 +78,19 @@ export default function RecipeReviewCard() {
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
-              <Typography>Original Language: {original_language}</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Original Language: {original_language}
+              </Typography>
               <IconButton aria-label="add to favorites">
                 <StarHalfOutlinedIcon />
               </IconButton>
-              {currentUser && (
-                <Typography>
+              {currentUser ? (
+                <Typography variant="body2" color="text.secondary">
                   {vote_average} / {vote_count}
+                </Typography>
+              ) : (
+                <Typography variant="body2" color="text.secondary">
+                  Vote Average:-- / Vote Count:--
                 </Typography>
               )}
             </CardActions>
