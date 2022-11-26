@@ -69,7 +69,7 @@ export default function RecipeReviewCard() {
             <CardMedia
               component="img"
               height="194"
-              image={defaultImage}
+              image={poster_path ? IMG_API + poster_path : defaultImage}
               alt={title}
             />
             <CardContent>
