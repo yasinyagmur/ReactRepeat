@@ -50,3 +50,13 @@ let c : Control = "user";
 let d = c = "admin"
 console.log(d);
 console.log(c);
+
+
+type Person = {
+firstName:string
+lastName:string
+age?:number // opsiyonel olmuş oldu
+};
+
+let people: Person[]=[]
+people.push({firstName:"jason",lastName:"Rain",age:33})
