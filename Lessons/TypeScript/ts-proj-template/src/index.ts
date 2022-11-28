@@ -24,15 +24,29 @@ function getFullName(){
 } 
 
 let num = 4.325;
-// function RoundUp(n:(string | number)):string{
-//     // n.
+function RoundUp(n:(string | number)):string{
+    // n.
 
-//     if(typeof n === "number"{
-//         // n.
-//         null
-//     }else (typeof n==="string"){
-//         // n.
-//         null
+    if(typeof n === "number"){
+        // n.
+        return n.toFixed(2)
+    }else{
+        // n.
+       return parseFloat(n).toFixed(2);
 
-//     })
-// }
+    }
+}
+console.log(RoundUp("6.825"));
+
+function great(message: string, person:string):string{
+    return message + " " + person +"!";
+}
+
+// const gr1=great("hello"); 2 PARAMETRE BEKLİYOR
+const gr1=great("hello","jason");
+console.log(gr1);
+type Control = "user" | "admin"| "moderatör";
+let c : Control = "user";
+let d = c = "admin"
+console.log(d);
+console.log(c);
