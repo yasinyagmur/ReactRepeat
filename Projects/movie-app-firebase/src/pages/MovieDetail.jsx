@@ -54,6 +54,7 @@ const MovieDetail = () => {
             component="img"
             image={poster_path ? baseImageUrl + poster_path : defaultImage}
             alt={title}
+            sx={{ maxWidth: "20rem" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
