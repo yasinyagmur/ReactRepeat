@@ -22,3 +22,17 @@ function getFullName(){
     // console.log(firstName +"" + lastName);
     // return(firstName +"" + lastName);
 } 
+
+let num = 4.325;
+// function RoundUp(n:(string | number)):string{
+//     // n.
+
+//     if(typeof n === "number"{
+//         // n.
+//         null
+//     }else (typeof n==="string"){
+//         // n.
+//         null
+
+//     })
+// }
