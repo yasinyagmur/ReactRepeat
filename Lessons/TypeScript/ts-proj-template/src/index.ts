@@ -38,9 +38,9 @@ function RoundUp(n:(string | number)):string{
 }
 console.log(RoundUp("6.825"));
 
-function great(message: string, person:string):string{
-    return message + " " + person +"!";
-}
+// function great(message: string, person:string):string{
+//     return message + " " + person +"!";
+// }
 
 // const gr1=great("hello"); 2 PARAMETRE BEKLİYOR
 const gr1=great("hello","jason");
